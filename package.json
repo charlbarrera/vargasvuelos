@@ -1,0 +1,19 @@
+{
+  "name": "vuelos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlbarrera/vargasvuelos.git"
+  },
+  "author": "vargasceo@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlbarrera/vargasvuelos/issues"
+  },
+  "homepage": "https://github.com/charlbarrera/vargasvuelos#readme"
+}
