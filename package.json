@@ -19,6 +19,8 @@
   "dependencies": {
     "@angular/cdk": "^6.4.7",
     "@angular/material": "^6.4.7",
-    "express": "^4.16.3"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.17"
   }
 }
