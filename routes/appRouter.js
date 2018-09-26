@@ -11,9 +11,9 @@ router.get('/list', function(req, res){
 })
 
 router.post('/create', function(req, res){
-    let newReservation = new reservation({
-        name: req.body.name
-    });
+    console.log(req.body);
+    let newReservation = new reservation();
+        newReservation.name = req.body.name;
     newReservation.save((err, reservation)=>{
         if(err){
             res.status(500).json({errmsg: err});

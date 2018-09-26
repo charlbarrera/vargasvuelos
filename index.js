@@ -4,10 +4,11 @@ const app = express();
 const router = require('./routes/appRouter');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 mongoose.connect('mongodb://localhost/vuelos', { useNewUrlParser: true });
 
-
+app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use('/', router);
