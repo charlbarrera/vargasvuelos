@@ -11,9 +11,12 @@ router.get('/list', function(req, res){
 })
 
 router.post('/create', function(req, res){
-    console.log(req.body);
     let newReservation = new reservation();
-        newReservation.name = req.body.name;
+    newReservation._id = req.body.cedula;
+    newReservation.dateBorn = req.body.dateBorn;
+    newReservation.name = req.body.name;
+    newReservation.reservation = req.body.reservation;
+    console.log(newReservation);
     newReservation.save((err, reservation)=>{
         if(err){
             res.status(500).json({errmsg: err});
