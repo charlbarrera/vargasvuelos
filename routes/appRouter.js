@@ -11,19 +11,33 @@ router.get('/list', function(req, res){
 })
 
 router.post('/create', function(req, res){
-    let newReservation = new reservation();
-    newReservation._id = req.body.cedula;
-    newReservation.dateBorn = req.body.dateBorn;
-    newReservation.name = req.body.name;
-    newReservation.reservation = req.body.reservation;
-    console.log(newReservation);
-    newReservation.save((err, reservation)=>{
+
+    reservation.findById(req.body.cedula, function(err, existente){
         if(err){
-            res.status(500).json({errmsg: err});
-        }else{
-            res.status(200).json({msg: reservation})
+            console.log(err)
+        }if( existente ) {
+            res.status(200).json({msg: 'ya existe el usuario'})
+            console.log('ya existe');
         }
-    })
+        else {
+
+            let newReservation = new reservation();
+            newReservation._id = req.body.cedula;
+            newReservation.dateRegister = new Date().getTime() / 86400000;
+            newReservation.dateBorn = req.body.dateBorn;
+            newReservation.name = req.body.name;
+            newReservation.reservation = req.body.reservation;
+            newReservation.save((err, reservation)=>{
+                if(err){
+                    res.status(500).json({errmsg: err});
+                }else{
+                    res.status(200).json({msg: reservation})
+                }
+            })
+        }
+    });
+        
+
 })
 
 module.exports = router;

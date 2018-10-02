@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const reservaSchema = mongoose.Schema({
     _id:{type:Number},
+    dateRegister:{type: Number},
     dateBorn:{type: String},
     name:{type: String},
     reservation:{type: Object}
